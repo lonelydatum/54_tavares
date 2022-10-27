@@ -39,7 +39,7 @@ function ender(){
 	const tl = new TimelineMax()
 	tl.from([".t3", ".logo3"], {duration:.3, opacity:0}, "+=.2")
 	tl.from([".footer", ".cta"], {duration:.3, opacity:0}, "+=.5")
-	tl.add(olg())
+	
 	return tl	
 }
 
@@ -53,7 +53,7 @@ function init(){
 	tl.set(".frame1", {opacity:1})
 	if(window.universalBanner.name==="hockey"){
 		
-		document.getElementById("legalContent").innerHTML = "Terms and conditions apply.  Individuals must be 19 years of age or older to participate in online sports betting made available by OLG.  Must be a resident of Ontario located in the province at the time of registration, where applicable, and play. © NHL 2022.  All Rights Reserved."
+		document.getElementById("legalContent").innerHTML = "NHL, the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2022. All Rights Reserved. <br> Terms and Conditions apply.  Individuals must be 19 years of age or older to participate in online sports betting made available by OLG. Must be a resident of Ontario located in the province at the time of registration, where applicable, and play."
 	}else if(window.universalBanner.name==="baseball"){
 		document.getElementById("legalContent").innerHTML =  "Terms and conditions apply.  Individuals must be 19 years of age or older to participate in online sports betting made available by OLG.  Must be a resident of Ontario located in the province at the time of registration, where applicable, and play. Major League Baseball trademarks and copyrights are used with permission of Major League Baseball. Visit MLB.com"
 	}else if(window.universalBanner.name==="basketball"){
@@ -67,26 +67,42 @@ function init(){
 
 function slider(read=2){	
 	const tl = new TimelineMax()
-	tl.add(logoFader())
-
-	tl.add("t1")
-	tl.from(".t1a", {duration:.26, x:"-=130", y:"+=30", opacity:0}, "t1")
-	tl.from(".t1b", {duration:.26, x:"+=130", y:"-=30", opacity:0}, "t1+=.6")
 	
-	tl.add(bgFadeOut(read))
+
+	tl.add("t1", "+=.3")
+	tl.from(".t1a", {duration:.2, x:"-=130", y:"+=30", opacity:0}, "t1")
+	tl.from(".t1b", {duration:.2, x:"+=130", y:"-=30", opacity:0}, "t1+=.6")
+	tl.to(".t1", {duration:.26, opacity:0}, "+=1")
+	tl.from(".t1c", {duration:.26, opacity:0}, "+=.1")
+
+	tl.add("t1-out", "+=2")
+	tl.to(".t1c", {duration:.26, opacity:0}, "t1-out")
+	tl.to(".hero", {duration:.26, opacity:0}, "t1-out")
+	tl.from(".bg-dark", {duration:.26, opacity:0}, "t1-out")
+	
+	
 	return tl
 }
 
 function standard(){	
 	const tl = init()	
-	tl.add(slider(), "+=.5")
+	tl.to(".logo1", {duration:.3, opacity:0}, "+=1")	
+	tl.add(slider())
 	tl.from(".logo2", {duration:.3, opacity:0}, "+=.1")
 	tl.from(".t2", {duration:.3, opacity:0}, "+=.3")
-	tl.to(".text2", {duration:.2, opacity:0}, `+=${read.njasb}`)
-	if(document.querySelector(".t2b")){
-		tl.add(fader(".t2b", read.betOnNFL))	
-	}
-	tl.add(ender())
+	tl.to(".t2", {duration:.3, opacity:0}, "+=2.5")
+
+	tl.from(".t3", {duration:.3, opacity:0}, "+=.3")
+	tl.to([".t3", ".logo2"], {duration:.3, opacity:0}, "+=2")
+
+	tl.from(".nhl", {duration:.3, opacity:0}, "+=.3")
+	tl.to(".nhl", {duration:.3, opacity:0}, "+=1")
+
+	tl.from(".end", {duration:.3, opacity:0}, "+=.3")
+	tl.from(".footer", {duration:.3, opacity:0}, "+=.3")
+	
+	
+	tl.add(olg())
 	return tl
 }
 
