@@ -77,8 +77,14 @@ function slider() {
 	var tl = new TimelineMax();
 
 	tl.add("t1", "+=.3");
-	tl.from(".t1a", { duration: .2, x: "-=130", y: "+=30", opacity: 0 }, "t1");
-	tl.from(".t1b", { duration: .2, x: "+=130", y: "-=30", opacity: 0 }, "t1+=.6");
+	tl.from(".t1a", { duration: .2, x: "+=130", y: "-=30", opacity: 0 }, "t1");
+	tl.from(".t1b", { duration: .2, x: "-=130", y: "+=30", opacity: 0 }, "t1+=.6");
+
+	return tl;
+}
+
+function t1() {
+	var tl = new TimelineMax();
 	tl.to(".t1", { duration: .26, opacity: 0 }, "+=1");
 	tl.from(".t1c", { duration: .26, opacity: 0 }, "+=.1");
 
@@ -86,14 +92,12 @@ function slider() {
 	tl.to(".t1c", { duration: .26, opacity: 0 }, "t1-out");
 	tl.to(".hero", { duration: .26, opacity: 0 }, "t1-out");
 	tl.from(".bg-dark", { duration: .26, opacity: 0 }, "t1-out");
-
 	return tl;
 }
 
-function standard() {
-	var tl = init();
-	tl.to(".logo1", { duration: .3, opacity: 0 }, "+=1");
-	tl.add(slider());
+function t2() {
+	var tl = new TimelineMax();
+
 	tl.from(".logo2", { duration: .3, opacity: 0 }, "+=.1");
 	tl.from(".t2", { duration: .3, opacity: 0 }, "+=.3");
 	tl.to(".t2", { duration: .3, opacity: 0 }, "+=2.5");
@@ -102,7 +106,7 @@ function standard() {
 	tl.to([".t3", ".logo2"], { duration: .3, opacity: 0 }, "+=2");
 
 	tl.from(".nhl", { duration: .3, opacity: 0 }, "+=.3");
-	tl.to(".nhl", { duration: .3, opacity: 0 }, "+=1");
+	tl.to(".nhl", { duration: .3, opacity: 0 }, "+=1.5");
 
 	tl.from(".end", { duration: .3, opacity: 0 }, "+=.3");
 	tl.from(".footer", { duration: .3, opacity: 0 }, "+=.3");
@@ -111,8 +115,18 @@ function standard() {
 	return tl;
 }
 
+function standard() {
+	var tl = init();
+	tl.from(".logo1", { duration: .3, x: "-=50", opacity: 0 }, "+=.1");
+	tl.to(".logo1", { duration: .3, opacity: 0 }, "+=1");
+	tl.add(slider());
+	tl.add(t1());
+	tl.add(t2());
+	return tl;
+}
+
 function b_970x250() {
-	b_728x90();
+	standard();
 }
 
 function b_160x600() {
@@ -131,40 +145,25 @@ function b_1000x700() {
 	standard();
 }
 
-function b_970x70() {
+function b_970x70() {}
 
-	var tl = new TimelineMax();
-	tl.add("t1");
-	tl.from(".t1a", { duration: .11, y: "-=50" }, "t1");
-	b_728x90(tl);
-}
-
-function b_320x50() {
-
-	var tl = new TimelineMax();
-	tl.add("t1");
-	tl.from(".t1a", { duration: .2, x: "-=180" }, "t1");
-	tl.from(".t1b", { duration: .2, x: "+=180" }, "t1");
-	b_728x90(tl);
-}
+function b_320x50() {}
 
 function b_728x90(text1) {
-
 	var tl = init();
-	if (text1) {
-		tl.add(logoFader());
-		tl.add(text1, "+=.5");
-		tl.add(bgFadeOut(2));
-	} else {
-		tl.add(slider(), "+=.5");
-	}
+	tl.from(".logo1", { duration: .3, x: "-=50", opacity: 0 }, "+=.1");
+	tl.to(".logo1", { duration: .3, opacity: 0 }, "+=1");
 
-	tl.add(fader(".t2", read.percentGoBack));
-	if (document.querySelector(".t2b")) {
-		tl.add(fader(".t2b", read.betOnNFL));
-	}
+	tl.from(".t1a", { duration: .2, opacity: 0 }, "+=.2");
+	tl.to(".t1a", { duration: .2, opacity: 0 }, "+=2");
+	tl.from(".t1c", { duration: .2, opacity: 0 }, "+=.2");
+	tl.to(".t1c", { duration: .2, opacity: 0 }, "+=1.5");
 
-	tl.add(ender());
+	tl.to(".hero", { duration: .26, opacity: 0 }, "t1-out");
+	tl.from(".bg-dark", { duration: .26, opacity: 0 }, "t1-out");
+
+	tl.add(t2());
+	return tl;
 }
 
 exports.init = init;
@@ -224,7 +223,7 @@ exports.olg = olg;
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
-(0, _commonJsCommonJs.b_320x50)();
+(0, _commonJsCommonJs.b_728x90)();
 
 },{"../../_common/js/common.js":1}]},{},[4])
 

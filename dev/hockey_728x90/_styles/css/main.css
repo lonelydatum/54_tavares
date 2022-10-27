@@ -226,4 +226,8 @@ canvas, .text, .frame, .outline, img {
   width: 80px;
 }
 
+.t1b {
+  display: none;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -227,4 +227,8 @@ canvas, .text, .frame, .outline, img {
   height: 50px;
 }
 
+.logo2 {
+  display: none;
+}
+
 /*# sourceMappingURL=main.css.map */
