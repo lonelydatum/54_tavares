@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        a{
+            color:#AAA;
+        }
+    </style>
+    <script>
+
+
+    const SS = { type: "SS", title: "160x600" }    
+    const BB = { type: "BB", title: "300x250" }    
+    const DBB = { type: "DBB", title: "300x600" }    
+    const M320 = { type: {w:320,h:50}, title: "320x50" }
+    const LB = { type: "LB", title: "728x90" }
+    const M970x70 = { type: {w:970,h:70}, title: "970x70" }
+    const M970x250 = { type: {w:970,h:250}, title: "970x250" }
+    const M1000x700 = { type: {w:1000,h:700}, title: "1000x700" }
+    
+
+
+
+
+
+    var data = {
+        title: "Proline",
+        banners:[        
+
+             {
+                title:"Basketball",
+                list:[
+                     { ...SS, path: "basketball_160x600" },                     
+                     { ...BB, path: "basketball_300x250" },
+                     { ...DBB, path: "basketball_300x600" },
+                     { ...M320, path: "basketball_320x50" },
+                     { ...LB, path: "basketball_728x90" },
+                     { ...M970x250, path: "basketball_970x250" },
+                     { ...M1000x700, path: "basketball_1000x700" },
+                ]
+            },   
+        {
+                title:"Baseball",
+                list:[
+                     { ...SS, path: "baseball_160x600" },                     
+                     { ...BB, path: "baseball_300x250" },
+                     { ...DBB, path: "baseball_300x600" },
+                     { ...M320, path: "baseball_320x50" },
+                     { ...LB, path: "baseball_728x90" },
+                     { ...M970x250, path: "baseball_970x250" },
+                     { ...M1000x700, path: "baseball_1000x700" },
+                ]
+            },   
+        {
+                title:"Hockey",
+                list:[
+                     { ...SS, path: "hockey_160x600" },                     
+                     { ...BB, path: "hockey_300x250" },
+                     { ...DBB, path: "hockey_300x600" },
+                     { ...M320, path: "hockey_320x50" },
+                     { ...LB, path: "hockey_728x90" },
+                     { ...M970x250, path: "hockey_970x250" },
+                     { ...M1000x700, path: "hockey_1000x700" },
+                ]
+            },   
+            {
+                title:"Football",
+                list:[
+                     { ...SS, path: "football_160x600" },                                          
+                     { ...BB, path: "football_300x250" },
+                     { ...DBB, path: "football_300x600" },
+                     { ...M320, path: "football_320x50" },
+                     { ...LB, path: "football_728x90" },
+                     { ...M970x250, path: "football_970x250" },
+                     { ...M1000x700, path: "football_1000x700" },
+                     { type: {w:970,h:70}, title: "970x70", path: "football_970x70" },
+                ]
+            },
+            {
+                title:"RTB_Hero",
+                list:[
+                     { ...SS, path: "rtb_160x600" },                                          
+                     { ...BB, path: "rtb_300x250" },
+                     { ...DBB, path: "rtb_300x600" },
+                     { ...M320, path: "rtb_320x50" },
+                     { ...LB, path: "rtb_728x90" },
+                     { ...M970x250, path: "rtb_970x250" },
+                     { ...M1000x700, path: "rtb_1000x700" },
+                ]
+            }
+             
+             
+        ]
+    }
+
+    </script>
+</head>
+<body>
+
+<script src="vendor.bundle.js"> </script>
+<script src="bundle.js"> </script>
+
+</body>
+</html>
